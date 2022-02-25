@@ -2,13 +2,9 @@
 	import type { IToDoItem } from '../interfaces/to-do-item.interface';
 
 	export let item: IToDoItem | null = null;
-
-	function toggle(): void {
-		item.done = !item.done;
-	}
 </script>
 
-<div class="item" class:item--done={item.done} on:click={toggle}>{item?.text}</div>
+<div class="item" class:item--done={item.done}>{item?.text.trim() || 'No title'}</div>
 
 <style lang="scss">
 	.item {

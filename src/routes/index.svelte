@@ -6,6 +6,8 @@
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 	</style>
+
+	<title>ToDoApp</title>
 </svelte:head>
 
 <div class="list-container">
@@ -50,7 +52,7 @@
 		:global(.list) {
 			margin: 12px auto;
 			min-height: 100%;
-			width: min(500px, 90%);
+			width: min(700px, 90%);
 		}
 	}
 </style>
