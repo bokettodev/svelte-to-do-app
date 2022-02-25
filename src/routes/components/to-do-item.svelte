@@ -4,7 +4,7 @@
 	export let item: IToDoItem | null = null;
 </script>
 
-<div class="item" class:item--done={item.done}>{item?.text.trim() || 'No title'}</div>
+<div class="item" class:item--done={item?.done}>{item?.text.trim() || 'No title'}</div>
 
 <style lang="scss">
 	.item {
