@@ -25,21 +25,8 @@
 		flipEnabled ? flip(node, args, params) : {};
 	let flipEnabled: boolean;
 
-	let uid = 0;
-
-	let notDoneItems: IToDoItem[] = [
-		{ id: uid++, text: `Some task #${uid}` },
-		{ id: uid++, text: `Some task #${uid}` },
-		{ id: uid++, text: `Some task #${uid}` },
-		{ id: uid++, text: `Some task #${uid}` }
-	];
-
-	let doneItems: IToDoItem[] = [
-		{ id: uid++, done: true, text: `Some task #${uid}` },
-		{ id: uid++, done: true, text: `Some task #${uid}` },
-		{ id: uid++, done: true, text: `Some task #${uid}` },
-		{ id: uid++, done: true, text: `Some task #${uid}` }
-	];
+	export let notDoneItems: IToDoItem[] = [];
+	export let doneItems: IToDoItem[] = [];
 
 	function toggle(item: IToDoItem): void {
 		if (item.done) {
