@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-8b5e8ea3.js",
+    "file": "start-a42952fb.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -34,7 +34,7 @@
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-b6639ad1.js",
+    "file": "pages/index.svelte-30606e76.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -45,7 +45,7 @@
       "src/routes/components/to-do-item.svelte"
     ],
     "css": [
-      "assets/pages/index.svelte-7c359b41.css"
+      "assets/pages/index.svelte-0ff3ee2f.css"
     ]
   },
   "src/routes/components/input-text.svelte": {
@@ -61,7 +61,7 @@
     ]
   },
   "src/routes/components/to-do-list.svelte": {
-    "file": "pages/components/to-do-list.svelte-ffaa84ea.js",
+    "file": "pages/components/to-do-list.svelte-330647f7.js",
     "src": "src/routes/components/to-do-list.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -70,7 +70,7 @@
       "src/routes/components/to-do-item.svelte"
     ],
     "css": [
-      "assets/pages/components/to-do-list.svelte-996e17e4.css"
+      "assets/pages/components/to-do-list.svelte-6c86b6c1.css"
     ]
   },
   "src/routes/components/to-do-item.svelte": {
