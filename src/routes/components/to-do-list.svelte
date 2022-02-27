@@ -1,71 +1,38 @@
 <script lang="ts">
-	import { quintOut } from 'svelte/easing';
-	import { crossfade } from 'svelte/transition';
-	import { flip, type FlipParams } from 'svelte/animate';
 	import type { IToDoItem } from '../interfaces/to-do-item.interface';
 	import ToDoItem from './to-do-item.svelte';
-
-	const durationMs = 300;
-	const [send, receive] = crossfade({
-		fallback(node) {
-			const style = getComputedStyle(node);
-			const transform = style.transform === 'none' ? '' : style.transform;
-
-			return {
-				duration: durationMs,
-				easing: quintOut,
-				css: (t) => `
-					transform: ${transform} scale(${t});
-					opacity: ${t}
-				`
-			};
-		}
-	});
-	const animate = (node: Element, args: { from: DOMRect; to: DOMRect }, params: FlipParams) =>
-		flipEnabled ? flip(node, args, params) : {};
-	let flipEnabled: boolean;
 
 	export let notDoneItems: IToDoItem[] = [];
 	export let doneItems: IToDoItem[] = [];
 
 	function toggle(item: IToDoItem): void {
+		remove(item);
 		if (item.done) {
-			flipEnabled = !!notDoneItems.length;
-
-			doneItems = doneItems.filter((i) => i !== item);
 			notDoneItems = [{ ...item, done: !item.done }, ...notDoneItems];
 		} else {
-			const notLastInList = notDoneItems.indexOf(item) !== notDoneItems.length - 1;
-			flipEnabled = notLastInList;
-
-			notDoneItems = notDoneItems.filter((i) => i !== item);
 			doneItems = [{ ...item, done: !item.done }, ...doneItems];
+		}
+	}
+
+	function remove(item: IToDoItem): void {
+		if (item.done) {
+			doneItems = doneItems.filter((i) => i !== item);
+		} else {
+			notDoneItems = notDoneItems.filter((i) => i !== item);
 		}
 	}
 </script>
 
 <div class="list">
 	{#each notDoneItems.filter((i) => !i.done) as item (item.id)}
-		<div
-			class="list__item"
-			in:receive={{ key: item.id }}
-			out:send={{ key: item.id }}
-			animate:animate
-			on:click={() => toggle(item)}
-		>
-			<ToDoItem bind:item />
+		<div class="list__item">
+			<ToDoItem bind:item on:toggle={() => toggle(item)} on:remove={() => remove(item)} />
 		</div>
 	{/each}
 
 	{#each doneItems.filter((i) => i.done) as item (item.id)}
-		<div
-			class="list__item"
-			in:receive={{ key: item.id }}
-			out:send={{ key: item.id }}
-			animate:animate
-			on:click={() => toggle(item)}
-		>
-			<ToDoItem bind:item />
+		<div class="list__item">
+			<ToDoItem bind:item on:toggle={() => toggle(item)} on:remove={() => remove(item)} />
 		</div>
 	{/each}
 </div>
@@ -75,7 +42,7 @@
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		gap: 12px;
+		gap: var(--default-indent-px);
 		width: 100%;
 
 		&__item {

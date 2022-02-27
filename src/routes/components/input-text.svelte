@@ -8,26 +8,26 @@
 		if (event.key !== 'Enter') {
 			return;
 		}
-		dispatch('onEnter', task);
+		dispatch('onEnter', task || '');
 		task = '';
 	}
 </script>
 
-<input type="text" placeholder="Enter your task..." bind:value={task} on:keypress={onKeyPress} />
+<input type="text" placeholder="Enter your task..." bind:value={task} on:keyup={onKeyPress} />
 
 <style lang="scss">
 	input {
-		background-color: #24222e;
+		background-color: var(--bg-dark-color);
 		border: none;
 		border-radius: 12px;
-		color: #fff;
+		color: var(--primary-color);
 		font-weight: bold;
 		overflow: hidden;
 		padding: 16px;
 		width: 100%;
 
 		&::placeholder {
-			color: gray;
+			color: var(--secondary-color);
 		}
 	}
 </style>

@@ -5,7 +5,7 @@
 
 	let uid = 0;
 	let notDoneItems: IToDoItem[] = [
-		{ id: uid++, text: `Complete me!` },
+		{ id: uid++, text: `Click here!` },
 		{ id: uid++, text: `Walk the dog` }
 	];
 	let doneItems: IToDoItem[] = [{ id: uid++, done: true, text: `Make a ToDo app using new technology` }];
@@ -24,6 +24,8 @@
 </svelte:head>
 
 <div class="app-container">
+	<h1>ToDoApp</h1>
+
 	<InputText on:onEnter={(e) => addNewTask(e.detail)} />
 
 	<div class="list-container">
@@ -51,7 +53,13 @@
 	}
 
 	:global(body) {
-		background-color: #3b3745;
+		--bg-light-color: #3b3745;
+		--bg-dark-color: #24222e;
+		--primary-color: white;
+		--secondary-color: gray;
+		--default-indent-px: 12px;
+
+		background-color: var(--bg-light-color);
 		height: 100%;
 		width: 100%;
 	}
@@ -59,11 +67,17 @@
 	.app-container {
 		display: flex;
 		flex-direction: column;
-		gap: 12px;
 		height: 100%;
 		margin: auto;
-		padding: 12px 0;
 		width: min(700px, 90%);
+
+		h1 {
+			color: var(--primary-color);
+			font-size: 32px;
+			line-height: 32px;
+			margin: 18px 0;
+			text-align: center;
+		}
 	}
 
 	.list-container {
@@ -76,6 +90,24 @@
 		scrollbar-width: none;
 		&::-webkit-scrollbar {
 			display: none;
+		}
+
+		&::before,
+		&::after {
+			content: '';
+			display: block;
+			height: var(--default-indent-px);
+			position: sticky;
+		}
+
+		&::before {
+			background: linear-gradient(var(--bg-light-color) 30%, transparent);
+			top: 0;
+		}
+
+		&::after {
+			background: linear-gradient(transparent, var(--bg-light-color));
+			bottom: 0;
 		}
 
 		:global(.list) {
