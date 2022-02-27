@@ -53,13 +53,13 @@
 	}
 
 	:global(body) {
-		--bg-light-color: #3b3745;
-		--bg-dark-color: #24222e;
-		--primary-color: white;
-		--secondary-color: gray;
-		--default-indent-px: 12px;
+		--color-bg-light: #3b3745;
+		--color-bg-dark: #24222e;
+		--color-primary: white;
+		--color-secondary: gray;
+		--indent-default: 12px;
 
-		background-color: var(--bg-light-color);
+		background-color: var(--color-bg-light);
 		height: 100%;
 		width: 100%;
 	}
@@ -72,7 +72,7 @@
 		width: min(700px, 90%);
 
 		h1 {
-			color: var(--primary-color);
+			color: var(--color-primary);
 			font-size: 32px;
 			line-height: 32px;
 			margin: 18px 0;
@@ -96,17 +96,17 @@
 		&::after {
 			content: '';
 			display: block;
-			height: var(--default-indent-px);
+			height: var(--indent-default);
 			position: sticky;
 		}
 
 		&::before {
-			background: linear-gradient(var(--bg-light-color) 30%, transparent);
+			background: linear-gradient(var(--color-bg-light) 30%, transparent);
 			top: 0;
 		}
 
 		&::after {
-			background: linear-gradient(transparent, var(--bg-light-color));
+			background: linear-gradient(transparent, var(--color-bg-light));
 			bottom: 0;
 		}
 

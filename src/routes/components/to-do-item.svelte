@@ -25,9 +25,9 @@
 <style lang="scss">
 	.item {
 		align-items: center;
-		background-color: var(--bg-dark-color);
+		background-color: var(--color-bg-dark);
 		border-radius: 12px;
-		color: var(--primary-color);
+		color: var(--color-primary);
 		cursor: pointer;
 		display: flex;
 		overflow: hidden;
@@ -36,7 +36,7 @@
 		width: 100%;
 
 		&--done {
-			color: var(--secondary-color);
+			color: var(--color-secondary);
 
 			p {
 				text-decoration: line-through;

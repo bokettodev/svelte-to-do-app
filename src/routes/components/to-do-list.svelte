@@ -24,13 +24,13 @@
 </script>
 
 <div class="list">
-	{#each notDoneItems.filter((i) => !i.done) as item (item.id)}
+	{#each notDoneItems as item (item.id)}
 		<div class="list__item">
 			<ToDoItem bind:item on:toggle={() => toggle(item)} on:remove={() => remove(item)} />
 		</div>
 	{/each}
 
-	{#each doneItems.filter((i) => i.done) as item (item.id)}
+	{#each doneItems as item (item.id)}
 		<div class="list__item">
 			<ToDoItem bind:item on:toggle={() => toggle(item)} on:remove={() => remove(item)} />
 		</div>
@@ -42,7 +42,7 @@
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		gap: var(--default-indent-px);
+		gap: var(--indent-default);
 		width: 100%;
 
 		&__item {
