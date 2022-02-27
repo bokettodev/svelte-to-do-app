@@ -17,17 +17,17 @@
 
 <style lang="scss">
 	input {
-		background-color: var(--bg-dark-color);
+		background-color: var(--color-bg-dark);
 		border: none;
 		border-radius: 12px;
-		color: var(--primary-color);
+		color: var(--color-primary);
 		font-weight: bold;
 		overflow: hidden;
 		padding: 16px;
 		width: 100%;
 
 		&::placeholder {
-			color: var(--secondary-color);
+			color: var(--color-secondary);
 		}
 	}
 </style>

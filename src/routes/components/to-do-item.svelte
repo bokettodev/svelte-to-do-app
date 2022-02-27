@@ -25,18 +25,17 @@
 <style lang="scss">
 	.item {
 		align-items: center;
-		background-color: var(--bg-dark-color);
+		background-color: var(--color-bg-dark);
 		border-radius: 12px;
-		color: var(--primary-color);
+		color: var(--color-primary);
 		cursor: pointer;
 		display: flex;
-		overflow: hidden;
 		padding: 16px;
 		user-select: none;
 		width: 100%;
 
 		&--done {
-			color: var(--secondary-color);
+			color: var(--color-secondary);
 
 			p {
 				text-decoration: line-through;
@@ -45,6 +44,7 @@
 
 		p {
 			font-weight: bold;
+			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 		}
@@ -54,6 +54,7 @@
 			border: none;
 			color: inherit;
 			cursor: pointer;
+			flex-shrink: 0;
 			font-weight: bold;
 			height: 20px;
 			margin-left: auto;
