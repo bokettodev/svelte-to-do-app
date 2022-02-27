@@ -109,11 +109,5 @@
 			background: linear-gradient(transparent, var(--color-bg-light));
 			bottom: 0;
 		}
-
-		:global(.list) {
-			margin: auto;
-			min-height: 100%;
-			width: 100%;
-		}
 	}
 </style>

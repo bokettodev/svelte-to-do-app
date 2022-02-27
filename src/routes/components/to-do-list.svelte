@@ -25,28 +25,18 @@
 
 <div class="list">
 	{#each notDoneItems as item (item.id)}
-		<div class="list__item">
-			<ToDoItem bind:item on:toggle={() => toggle(item)} on:remove={() => remove(item)} />
-		</div>
+		<ToDoItem bind:item on:toggle={() => toggle(item)} on:remove={() => remove(item)} />
 	{/each}
 
 	{#each doneItems as item (item.id)}
-		<div class="list__item">
-			<ToDoItem bind:item on:toggle={() => toggle(item)} on:remove={() => remove(item)} />
-		</div>
+		<ToDoItem bind:item on:toggle={() => toggle(item)} on:remove={() => remove(item)} />
 	{/each}
 </div>
 
 <style lang="scss">
 	.list {
-		align-items: center;
 		display: flex;
 		flex-direction: column;
 		gap: var(--indent-default);
-		width: 100%;
-
-		&__item {
-			width: 100%;
-		}
 	}
 </style>
