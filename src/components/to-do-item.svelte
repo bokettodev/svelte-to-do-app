@@ -2,9 +2,8 @@
 	import { createEventDispatcher } from 'svelte';
 	import type { IToDoItem } from '../interfaces/to-do-item.interface';
 
-	export let item: IToDoItem | null = null;
-
 	const dispatch = createEventDispatcher();
+	export let item: IToDoItem | null = null;
 
 	function toggle(): void {
 		dispatch('toggle');
