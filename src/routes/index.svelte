@@ -1,7 +1,7 @@
 <script lang="ts">
-	import InputText from './components/input-text.svelte';
-	import ToDoList from './components/to-do-list.svelte';
-	import type { IToDoItem } from './interfaces/to-do-item.interface';
+	import InputText from '../components/input-text.svelte';
+	import ToDoList from '../components/to-do-list.svelte';
+	import type { IToDoItem } from '../interfaces/to-do-item.interface';
 
 	let uid = 0;
 	let notDoneItems: IToDoItem[] = [

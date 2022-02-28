@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
-	let task: string;
 	const dispatch = createEventDispatcher();
+	let task: string;
 
 	function onKeyPress(event: KeyboardEvent): void {
 		if (event.key !== 'Enter') {
