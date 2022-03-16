@@ -2,33 +2,24 @@
 	import type { IToDoItem } from '../interfaces/to-do-item.interface';
 	import ToDoItem from './to-do-item.svelte';
 
-	export let notDoneItems: IToDoItem[] = [];
-	export let doneItems: IToDoItem[] = [];
+	export let items: IToDoItem[] = [];
 
 	function toggle(item: IToDoItem): void {
-		remove(item);
-		if (item.done) {
-			notDoneItems = [{ ...item, done: !item.done }, ...notDoneItems];
-		} else {
-			doneItems = [{ ...item, done: !item.done }, ...doneItems];
-		}
+		item.done = !item.done;
+		items = items;
 	}
 
 	function remove(item: IToDoItem): void {
-		if (item.done) {
-			doneItems = doneItems.filter((i) => i !== item);
-		} else {
-			notDoneItems = notDoneItems.filter((i) => i !== item);
-		}
+		items = items.filter((i) => i !== item);
 	}
 </script>
 
 <div class="list">
-	{#each notDoneItems as item (item.id)}
+	{#each items.filter((item) => !item.done) as item (item.id)}
 		<ToDoItem bind:item on:toggle={() => toggle(item)} on:remove={() => remove(item)} />
 	{/each}
 
-	{#each doneItems as item (item.id)}
+	{#each items.filter((item) => item.done) as item (item.id)}
 		<ToDoItem bind:item on:toggle={() => toggle(item)} on:remove={() => remove(item)} />
 	{/each}
 </div>
@@ -37,6 +28,6 @@
 	.list {
 		display: flex;
 		flex-direction: column;
-		gap: var(--indent-default);
+		gap: 0.75em;
 	}
 </style>
