@@ -40,6 +40,7 @@
 			color: var(--text-primary-color);
 			margin: 0.5em 0;
 			text-align: center;
+			user-select: none;
 		}
 	}
 

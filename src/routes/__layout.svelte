@@ -1,9 +1,9 @@
-<script lang="ts">
-	import '../app.scss';
-</script>
-
 <svelte:head>
 	<title>ToDoApp</title>
+
+	<style lang="scss">
+		@use '../app.scss';
+	</style>
 </svelte:head>
 
 <slot />
