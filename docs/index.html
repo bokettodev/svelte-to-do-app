@@ -5,13 +5,36 @@
 		<meta name="description" content="" />
 		<link rel="icon" href="/svelte-to-do-app/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta http-equiv="content-security-policy" content=""><title>ToDoApp</title><style data-svelte="svelte-12la89r">@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-	</style>
-	<link rel="stylesheet" href="/svelte-to-do-app/_app/assets/pages/index.svelte-4b2f5a7a.css">
-	<link rel="modulepreload" href="/svelte-to-do-app/_app/start-8c6062dd.js">
-	<link rel="modulepreload" href="/svelte-to-do-app/_app/chunks/vendor-882bf64e.js">
-	<link rel="modulepreload" href="/svelte-to-do-app/_app/layout.svelte-b961a265.js">
-	<link rel="modulepreload" href="/svelte-to-do-app/_app/pages/index.svelte-f4c0277d.js">
+		<meta http-equiv="content-security-policy" content=""><title>ToDoApp</title><style lang="scss" data-svelte="svelte-jjzje0">@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+:root {
+  --bg-primary-color: #3b3745;
+  --bg-secondary-color: #24222e;
+  --text-primary-color: white;
+  --text-secondary-color: gray;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary-color);
+  font-family: "Roboto", arial, helvetica, sans-serif;
+  height: 100vh;
+  width: 100vw;
+}
+
+input {
+  font-size: 1rem;
+  outline: none;
+}</style>
+	<link rel="stylesheet" href="/svelte-to-do-app/_app/assets/pages/index.svelte-bfd8cf91.css">
+	<link rel="modulepreload" href="/svelte-to-do-app/_app/start-977f51f8.js">
+	<link rel="modulepreload" href="/svelte-to-do-app/_app/chunks/vendor-de5c08b0.js">
+	<link rel="modulepreload" href="/svelte-to-do-app/_app/pages/__layout.svelte-e68bb3a5.js">
+	<link rel="modulepreload" href="/svelte-to-do-app/_app/pages/index.svelte-96361174.js">
 	</head>
 	<body>
 		
@@ -19,30 +42,25 @@
 
 
 
-<div class="app-container svelte-1o1is36"><h1 class="svelte-1o1is36">ToDoApp</h1>
+<article class="svelte-5m9g69"><h1 class="svelte-5m9g69">ToDoApp</h1>
 
-	<input type="text" placeholder="Enter your task..." class="svelte-1hb7ruw">
+	<input type="text" placeholder="Enter your task..." class="svelte-ehi7wn" value="">
 
-	<div class="list-container svelte-1o1is36"><div class="list svelte-92c4ze"><div class="item svelte-q6mmuj"><p class="svelte-q6mmuj">Click here!</p>
+	<div class="list-container svelte-5m9g69"><div class="list svelte-10ytnoi"><div class="item svelte-crqune"><p class="svelte-crqune">Click here!</p>
 
-	<button class="svelte-q6mmuj">✕</button>
-</div><div class="item svelte-q6mmuj"><p class="svelte-q6mmuj">Walk the dog</p>
+		<button class="svelte-crqune">✕</button></div>
 
-	<button class="svelte-q6mmuj">✕</button>
-</div>
+	<div class="item svelte-crqune item--done"><p class="svelte-crqune">Walk the dog</p>
 
-	<div class="item svelte-q6mmuj item--done"><p class="svelte-q6mmuj">Make a ToDo app using new technology</p>
-
-	<button class="svelte-q6mmuj">✕</button>
-</div>
+		<button class="svelte-crqune">✕</button></div>
 </div></div>
-</div>
+</article>
 
 
-		<script type="module" data-hydrate="11neebz">
-		import { start } from "/svelte-to-do-app/_app/start-8c6062dd.js";
+		<script type="module" data-hydrate="86j743">
+		import { start } from "/svelte-to-do-app/_app/start-977f51f8.js";
 		start({
-			target: document.querySelector('[data-hydrate="11neebz"]').parentNode,
+			target: document.querySelector('[data-hydrate="86j743"]').parentNode,
 			paths: {"base":"/svelte-to-do-app","assets":"/svelte-to-do-app"},
 			session: {},
 			route: true,
@@ -52,8 +70,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/svelte-to-do-app/_app/layout.svelte-b961a265.js"),
-						import("/svelte-to-do-app/_app/pages/index.svelte-f4c0277d.js")
+					import("/svelte-to-do-app/_app/pages/__layout.svelte-e68bb3a5.js"),
+						import("/svelte-to-do-app/_app/pages/index.svelte-96361174.js")
 				],
 				params: {}
 			}
