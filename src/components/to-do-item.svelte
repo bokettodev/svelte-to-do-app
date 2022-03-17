@@ -15,26 +15,28 @@
 	}
 </script>
 
-<div class="item" class:item--done={item?.done} on:click={toggle}>
-	<p>{item?.text.trim() || 'No title'}</p>
+{#if item}
+	<div class="item" class:item--done={item.done} on:click={toggle}>
+		<p>{item.text.trim() || 'No title'}</p>
 
-	<button on:click={remove}>&#x2715</button>
-</div>
+		<button on:click={remove}>&#x2715</button>
+	</div>
+{/if}
 
 <style lang="scss">
 	.item {
 		align-items: center;
-		background-color: var(--color-bg-dark);
-		border-radius: 12px;
-		color: var(--color-primary);
+		background-color: var(--bg-secondary-color);
+		border-radius: 0.75em;
+		color: var(--text-primary-color);
 		cursor: pointer;
 		display: flex;
-		padding: 16px;
+		padding: 1em;
 		user-select: none;
 		width: 100%;
 
 		&--done {
-			color: var(--color-secondary);
+			color: var(--text-secondary-color);
 
 			p {
 				text-decoration: line-through;
@@ -55,9 +57,9 @@
 			cursor: pointer;
 			flex-shrink: 0;
 			font-weight: bold;
-			height: 20px;
+			height: 1.25em;
 			margin-left: auto;
-			width: 20px;
+			width: 1.25em;
 		}
 	}
 </style>
