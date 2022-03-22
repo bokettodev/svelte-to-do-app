@@ -6,7 +6,8 @@
 
 	function toggle(item: IToDoItem): void {
 		item.done = !item.done;
-		items = items;
+		remove(item);
+		items.unshift(item);
 	}
 
 	function remove(item: IToDoItem): void {
