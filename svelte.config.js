@@ -15,9 +15,6 @@ const config = {
 		}),
 		paths: {
 			base: dev ? '' : '/svelte-to-do-app'
-		},
-		prerender: {
-			default: true
 		}
 	}
 };
