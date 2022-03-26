@@ -1,21 +1,35 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import InputText from '../components/input-text.svelte';
 	import ToDoList from '../components/to-do-list.svelte';
 	import type { IToDoItem } from '../interfaces/to-do-item.interface';
 
-	let uid = 0;
-	let items: IToDoItem[] = [
-		{ id: uid++, text: `Click here!` },
-		{ id: uid++, done: true, text: `Walk the dog` }
-	];
+	let uid: number;
+	let items: IToDoItem[];
+	const listKey = 'toDoList';
 
-	function addNewTask(text: string): void {
+	onMount((): void => {
+		try {
+			items = JSON.parse(localStorage.getItem(listKey)) || [];
+		} catch {
+			items = [];
+			updateLocalStorage();
+		}
+		uid = items.length;
+	});
+
+	const addNewTask = (text: string): void => {
 		text = text.trim();
 		if (!text) {
 			return;
 		}
-		items = [{ id: uid++, text }, ...items];
-	}
+		items = [{ id: uid++, done: false, text }, ...items];
+		updateLocalStorage();
+	};
+
+	const updateLocalStorage = (): void => {
+		localStorage.setItem(listKey, JSON.stringify(items));
+	};
 </script>
 
 <article>
@@ -24,7 +38,7 @@
 	<InputText on:onEnter={(e) => addNewTask(e.detail)} />
 
 	<div class="list-container">
-		<ToDoList bind:items />
+		<ToDoList bind:items on:onToggle={updateLocalStorage} on:onRemove={updateLocalStorage} />
 	</div>
 </article>
 

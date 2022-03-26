@@ -4,13 +4,13 @@
 	const dispatch = createEventDispatcher();
 	let value = '';
 
-	function onKeyUp(event: KeyboardEvent): void {
+	const onKeyUp = (event: KeyboardEvent): void => {
 		if (event.key !== 'Enter') {
 			return;
 		}
 		dispatch('onEnter', value);
 		value = '';
-	}
+	};
 </script>
 
 <input type="text" placeholder="Enter your task..." bind:value on:keyup={onKeyUp} />
