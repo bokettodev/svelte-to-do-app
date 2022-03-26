@@ -5,14 +5,14 @@
 	const dispatch = createEventDispatcher();
 	export let item: IToDoItem | null = null;
 
-	function toggle(): void {
+	const toggle = (): void => {
 		dispatch('toggle');
-	}
+	};
 
-	function remove(event: Event): void {
+	const remove = (event: Event): void => {
 		event.stopPropagation();
 		dispatch('remove');
-	}
+	};
 </script>
 
 {#if item}

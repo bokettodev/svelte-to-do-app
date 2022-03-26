@@ -1,27 +1,35 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import type { IToDoItem } from '../interfaces/to-do-item.interface';
 	import ToDoItem from './to-do-item.svelte';
 
 	export let items: IToDoItem[] = [];
+	const dispatch = createEventDispatcher();
 
-	function toggle(item: IToDoItem): void {
+	const toggle = ({ item }: { item: IToDoItem }): void => {
 		item.done = !item.done;
-		remove(item);
+		remove({ item, skipEvent: true });
 		items.unshift(item);
-	}
 
-	function remove(item: IToDoItem): void {
+		dispatch('onToggle', item);
+	};
+
+	const remove = ({ item, skipEvent }: { item: IToDoItem; skipEvent?: boolean }): void => {
 		items = items.filter((i) => i !== item);
-	}
+
+		if (!skipEvent) {
+			dispatch('onRemove', item);
+		}
+	};
 </script>
 
 <div class="list">
 	{#each items.filter((item) => !item.done) as item (item.id)}
-		<ToDoItem bind:item on:toggle={() => toggle(item)} on:remove={() => remove(item)} />
+		<ToDoItem bind:item on:toggle={() => toggle({ item })} on:remove={() => remove({ item })} />
 	{/each}
 
 	{#each items.filter((item) => item.done) as item (item.id)}
-		<ToDoItem bind:item on:toggle={() => toggle(item)} on:remove={() => remove(item)} />
+		<ToDoItem bind:item on:toggle={() => toggle({ item })} on:remove={() => remove({ item })} />
 	{/each}
 </div>
 
