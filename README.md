@@ -1,4 +1,4 @@
-## Svelte ToDoApp
+## Svelte ToDo App
 
 [Working example](https://bokettodev.github.io/svelte-to-do-app/)
 

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { v4 as uuidv4 } from 'uuid';
 	import InputText from '../components/input-text.svelte';
 	import ToDoList from '../components/to-do-list.svelte';
 	import type { IToDoItem } from '../interfaces/to-do-item.interface';
 
-	let uid: number;
 	let items: IToDoItem[];
 	const listKey = 'toDoList';
 
@@ -15,7 +15,6 @@
 			items = [];
 			updateLocalStorage();
 		}
-		uid = items.length;
 	});
 
 	const addNewTask = (text: string): void => {
@@ -23,7 +22,7 @@
 		if (!text) {
 			return;
 		}
-		items = [{ id: uid++, done: false, text }, ...items];
+		items = [{ id: uuidv4(), done: false, text }, ...items];
 		updateLocalStorage();
 	};
 
