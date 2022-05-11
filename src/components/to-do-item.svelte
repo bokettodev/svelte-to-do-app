@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import type { IToDoItem } from '../interfaces/to-do-item.interface';
 
 	const dispatch = createEventDispatcher();
@@ -16,7 +17,7 @@
 </script>
 
 {#if item}
-	<div class="item" class:item--done={item.done} on:click={toggle}>
+	<div class="item" class:item--done={item.done} in:fade on:click={toggle}>
 		<p>{item.text.trim() || 'No title'}</p>
 
 		<button on:click={remove}>&#x2715</button>
